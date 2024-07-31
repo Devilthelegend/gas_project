@@ -1,0 +1,91 @@
+{% extends 'gas_app/base.html' %}
+
+{% block title %}My Requests{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Service Requests</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f9f9f9;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 30px 0;
+            color: #333;
+        }
+
+        table {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            font-size: 1.1em;
+        }
+
+        td {
+            font-size: 1em;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e1e1e1;
+        }
+    </style>
+</head>
+<body>
+    <h2>My Service Requests</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+            <tr>
+                <td>{{ request.id }}</td>
+                <td>{{ request.request_type }}</td>
+                <td>{{ request.description }}</td>
+                <td>{{ request.status }}</td>
+                <td>{{ request.created_at }}</td>
+                <td>{{ request.updated_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock %}

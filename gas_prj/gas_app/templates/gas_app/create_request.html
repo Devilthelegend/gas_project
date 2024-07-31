@@ -1,0 +1,87 @@
+{% extends 'gas_app/base.html' %}
+
+{% block title %}Create Service Request{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Service Request</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+        }
+
+        .container {
+            width: 80%;
+            max-width: 700px; /* Increased max-width */
+            padding: 30px; /* Increased padding */
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 30px; /* Increased margin-bottom */
+            color: #333;
+            font-size: 1.8em; /* Increased font-size */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            max-width: 600px; /* Increased max-width */
+            margin: 15px 0; /* Increased margin */
+            padding: 15px; /* Increased padding */
+            border: 1px solid #ddd;
+            border-radius: 8px; /* Slightly increased border-radius */
+            font-size: 1.1em; /* Increased font-size */
+        }
+
+        form button {
+            width: 100%;
+            max-width: 600px; /* Increased max-width */
+            height: 50px; /* Increased height */
+            margin-top: 25px; /* Increased margin-top */
+            color: #fff;
+            background: #4CAF50;
+            font-size: 1.1em; /* Increased font-size */
+            font-weight: bold;
+            border: none;
+            border-radius: 8px; /* Slightly increased border-radius */
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Service Request</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}

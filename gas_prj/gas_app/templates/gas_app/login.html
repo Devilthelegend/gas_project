@@ -1,0 +1,101 @@
+{% extends 'gas_app/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: 'Jost', sans-serif;
+        background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    }
+
+    .main {
+        width: 350px;
+        height: 500px;
+        background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+        border-radius: 10px;
+        box-shadow: 5px 20px 50px #000;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #chk {
+        display: none;
+    }
+
+    .login {
+        width: 100%;
+        height: 100%;
+        background: #eee;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .login form {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .login label {
+        color: #573b8a;
+        font-size: 2em;
+        display: block;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        height: 40px;
+        background: #e0dede;
+        margin: 10px 0;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    button {
+        width: 100%;
+        height: 40px;
+        margin-top: 20px;
+        color: #fff;
+        background: #573b8a;
+        font-size: 1em;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.2s ease-in;
+    }
+
+    button:hover {
+        background: #6d44b8;
+    }
+</style>
+
+<div class="main">
+    <div class="login">
+        <form method="post">
+            {% csrf_token %}
+            <label for="chk" aria-hidden="true">Login</label>
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
